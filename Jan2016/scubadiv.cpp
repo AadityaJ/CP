@@ -14,7 +14,15 @@ int main(int argc, char const *argv[])
 	scanf("%d",&t);
 	while(t--){
 		int wo,wn,wt[1001][2],val[1001];
-		scanf("%d")
+		int n;
+		scanf("%d %d",&wo,&wn);
+		scanf("%d",&n);
+		for(int i=0;i<n;i++){
+			scanf("%d %d",&wt[i][0],&wt[i][1]);
+			scanf("%d",&val[i]);
+		}
+		int res=knp(wo,wn,wt,val,n);
+		printf("%d\n",res);
 	}
 	return 0;
 }
