@@ -5,18 +5,20 @@ int n,l;
 int max(int a,int b,int c){
 	return (a>b)?((a>c)?a:c):((b>c)?b:c);
 }
+int iter=0;
 int num[105][105];
 void init(){
 	for(int i=0;i<105;i++)
 		for(int j=0;j<105;j++)
 			num[i][j]=-1;
 }
-int dp(int r,int num_stone,int c){
+int dp(int r,int c){
 	if(num[r][c]!=-1) return num[r][c];
-	if(c<0 || c>=l) return num_stone;  //out of bounds
-	if(r>=n) return num_stone;
+	iter++;
+	if(c<0 || c>=l) return 0;  //out of bounds
+	if(r>=n) return 0;
 	//if(!r) num_stone+=arr[0][c]; // first iteration
-	return num[r][c]=max(dp(r+1,num_stone+arr[r][c],c),dp(r+1,num_stone+arr[r][c],c+1),dp(r+1,num_stone+arr[r][c],c-1));
+	return num[r][c]=max(dp(r+1,c)+arr[r][c],dp(r+1,c+1)+arr[r][c],dp(r+1,c-1)+arr[r][c]);
 }
 int main(int argc, char const *argv[])
 {
@@ -31,11 +33,12 @@ int main(int argc, char const *argv[])
 		}
 		int max=0;
 		for(int i=0;i<l;i++){
-			int num=dp(0,0,i);
+			int num=dp(0,i);
 			//printf("%d\n",num);
 			if(num>max) max=num;
 		}
 		printf("%d\n",max);
 	}
+	//printf("%d\n",iter);
 	return 0;
 }
