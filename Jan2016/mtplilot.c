@@ -8,12 +8,13 @@ int min(int a,int b){
 }
 int calc(int i,int a,int pil,int asn){
 	//if(i==n) {return 0;}
+	int piladd=0,asnadd=0;
 	if(i==n){
 		if(asn==pil) return 0;
 		else return -1000;
 	}
-	if(a==0) return arr[i][a]+min(calc(i+1,a,pil+1,asn),calc(i+1,!a,pil,asn)) ;
-	else asn ++; 
+	if(a==0) {piladd=1;asnadd}
+	return arr[i][a]+min(calc(i+1,a,))
 	
 }
 int main(int argc, char const *argv[])
