@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 		//int i;
 		scanf("%d",&n);
 		for(int j=0;j<n;j++) scanf("%d",&arr[j]);
-		printf("%d\n",max(calc(0,0,0),calc(0,0,1)));
+		printf("%d\n",calc(0,0,0));
 	}
 	return 0;
 }
