@@ -1,30 +1,60 @@
 //http://www.spoj.com/problems/AE2A/
-#include <stdio.h>
-#define max 1000006;
-long long int n,k;
-int dp[1000006][1000006];
-void init(){
-	for(int i=0;i<1000006;i++){
-		for(int j=0;j<1000006;j++) 
-			dp[i][j]=-100;
-	}
-}
-int calc(long long int i,long long int pip){
-	if(dp[i][pip]!=-100) return dp[i][pip];
-	if(i==n){
-		if(pip==k) return 1;
-		else return 0;
-	}
-	return dp[i][pip]=calc(i+1,pip+1)+calc(i+1,pip+2)+calc(i+1,pip+3)+calc(i+1,pip+4)+calc(i+1,pip+5)+calc(i+1,pip+6);
-}
-int main(int argc, char const *argv[])
+
+#include<stdio.h>
+using namespace std;
+long double arr[551][3301] = {0};
+/*int getAns(int n,double val)
 {
+	while(n>0)
+	{
+		val/=6;
+		n--;
+	}
+	printf("%lf --\n",val);
+	int ans = val;
+	return ans;
+}*/
+int main()
+{
+	for(int i=1;i<=6;i++)
+	{
+		arr[1][i] = 1.0/6.0;
+	}
+	for(int i=2;i<=550;i++)
+	{
+		for(int j=2;j<=3301;j++)
+		{
+			for(int k=1;k<=6;k++)
+			{
+				if(j-k>=0)
+				{
+					arr[i][j] += arr[i-1][j-k]/6.0;
+				}
+			}
+		}
+	}
+	
+	/*for(int l=1;l<=13;l++)
+	{
+		for(int z = 1;z<=13;z++)
+		{
+			printf("%.2lf ",arr[l][z]);
+		}
+		printf("\n");
+	}*/
 	int t;
 	scanf("%d",&t);
-	while(t--){
-		init();
-		scanf("%lld %lld",&n,&k);
-		printf("%d\n",calc(0,0));
+	int n,k;
+	for(int l=0;l<t;l++)
+	{                  
+		scanf("%d%d",&n,&k);
+		if(n<=550 && k<=3300)
+		{
+			printf("%d\n",(int)(100*arr[n][k]));
+			//printf("%d\n",getAns(n,100*arr[n][k]));
+		}
+		else
+			printf("0\n");
 	}
 	return 0;
 }
