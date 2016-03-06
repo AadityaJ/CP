@@ -21,7 +21,13 @@ int main(int argc, char const *argv[])
 		int p=0;
 		for(int i=0;i<num;i++){
 			if(arr[i]==no){sor[p++]=arr[i];no++;}
-			else {mys.push(arr[i]);}
+			else {
+				if(mys.top()=no && !mys.empty()){
+					sor[p++]=mys.top();
+					mys.pop();
+				}
+				mys.push(arr[i]);
+			}
 		}
 		while(!mys.empty()){
 			sor[p++]=mys.top();
