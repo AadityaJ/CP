@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 	}
 	int max=0;
 	for(int x=0;x<n;x++){
-		int val= *(myset[x].end());
+		int val= *(myset[]x.end());
 		if(max < val)
 			max=val;
 	}
