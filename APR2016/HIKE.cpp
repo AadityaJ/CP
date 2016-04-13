@@ -4,7 +4,6 @@
 #include <algorithm>
 #include <cstring>
 using namespace std;
-
 const int MAX = 55, INF = 0x7f7f7f7f;
 int d[MAX][MAX][MAX];
 char grid[MAX][MAX][2];
