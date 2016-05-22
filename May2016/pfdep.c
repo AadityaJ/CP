@@ -8,7 +8,11 @@ int main(int argc, char const *argv[])
 	list <int> vec[(n+1)];
 	for(int i=0;i<m;i++){
 		scanf("%d %d",&a,&b);
-		vec[a].push_back(b);
+		int x;
+		for(int j=0;j<b;j++){
+			scanf("%d",&x);
+			vec[x].push_back(a);
+		}
 	}
 	// now calculate in degrees
 	vector <int> indeg((n+1),0);
@@ -17,7 +21,7 @@ int main(int argc, char const *argv[])
 		for(itr=vec[i].begin();itr!=vec[i].end();itr++)
 			++indeg[*itr];
 	}
-	for(int i=0;i<=n;i++) printf("%d %d\n",i,indeg[i]);
+	//for(int i=0;i<=n;i++) printf("%d %d\n",i,indeg[i]);
 	queue <int> q;
 	for(int i=0;i<=n;i++){
 		if(indeg[i]==0) q.push(i);
@@ -37,7 +41,7 @@ int main(int argc, char const *argv[])
 	//printf("%d %d\n",cnt,n);
 	if(cnt<n) printf("Sandro fails.");
 	else {
-		for(int i=0;i<top_order.size();i++)
+		for(int i=1;i<top_order.size();i++)
 			printf("%d ",top_order[i]);
 	}
 	return 0;
