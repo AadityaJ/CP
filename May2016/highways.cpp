@@ -1,25 +1,18 @@
 //http://www.spoj.com/problems/HIGHWAYS/
 #include <cstdio>
 #include <queue>
-
 using namespace std;
-
 struct edge {
 	int v;
 	int w;
 };
-
 bool operator <( edge a, edge b ) {
 	return a.w < b.w;
 }
-
 #define INF 10000000
-
 int dist[ 1000001 ];
-
 void dijkstra( vector< edge > graph[], int N, int S, int T ) {
 	int i;
-
 	for ( i = 0; i <= N; ++i ) {
 		dist[ i ] = INF;
 	}
@@ -50,20 +43,16 @@ int main() {
 	int t, N, m, s, T;
 	int u, v, w, i;
 	scanf( "%d", &t );
-
 	while ( t > 0 ) {
 		scanf( "%d%d%d%d", &N, &m, &s, &T );
 		vector< edge > graph[ N + 1 ];
-
 		for ( i = 0; i < m; ++i ) {
 			scanf( "%d%d%d", &u, &v, &w );
 			graph[ u ].push_back( ( edge ) { v, w } );
 			graph[ v ].push_back( ( edge ) { u, w } );
 		}
 		dijkstra( graph, N, s, T );
-
 		--t;
 	}
-
 	return 0;
 }
