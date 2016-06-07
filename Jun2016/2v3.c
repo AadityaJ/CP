@@ -12,7 +12,7 @@ void build(int node,int start,int end){
 		mid=(start+end)/2;
 		build((2*node)+1,start,mid);
 		build((2*node)+2,mid+1,end);
-		tree[node]=tree[(2*node)+1]+tree[(2*node)+2];
+		tree[node]=(tree[(2*node)+1]+tree[(2*node)+2])%3;
 	}
 }
 int main(int argc, char const *argv[])
