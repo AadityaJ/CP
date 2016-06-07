@@ -14,8 +14,10 @@ public:
 node *arr[100];
 node *head_1[100];
 void node::make_set(int n){
+	cout<<"I am here\n";
 	for(int i=0;i<n;i++)
 		arr[i]->head=head_1[i];
+	cout<<"I am here too";
 }
 void node::unin(int a,int b){
 	arr[a]->head=arr[b]->head;	
@@ -33,6 +35,7 @@ int main(int argc, char const *argv[])
 	int n;
 	cin>>n;
 	node obj;
+	//cout<<"Called here in main\n";
 	obj.make_set(n);
 	obj.unin(1,2);
 	obj.unin(1,3);
