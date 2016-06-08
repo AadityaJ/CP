@@ -1,10 +1,10 @@
 //http://www.spoj.com/problems/FOXLINGS/
 #include <stdio.h>
 #include <algorithm>
-int arr[100];
-int size[100];
+int arr[10000001];
+int size[10000001];
 void make_set(int n){
-	for(int i=0;i<n;i++){
+	for(int i=0;i<=n;i++){
 		arr[i]=i;
 		size[i]=0;
 	}
@@ -35,7 +35,7 @@ int main(int argc, char const *argv[])
 	int n,m;
 	int x,y;
 	scanf("%d %d",&n,&m);
-	make_set(n+1);
+	make_set(n);
 	for(int i=0;i<m;i++){
 		scanf("%d %d",&x,&y);
 		uni(x,y);
