@@ -1,8 +1,12 @@
 //http://www.spoj.com/problems/FOXLINGS/
 #include <stdio.h>
 #include <algorithm>
-int arr[10000001];
-int size[10000001];
+#include <vector>
+using namespace std;
+vector<int>arr;
+vector<int>size;
+//int arr[10000001];
+//int size[10000001];
 void make_set(int n){
 	for(int i=0;i<=n;i++){
 		arr[i]=i;
