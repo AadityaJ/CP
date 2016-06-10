@@ -30,7 +30,7 @@ class UnionFind {
   void make_set(int x) {
     parent[x] = x;
     set_rank[x] = 0;
-  }
+  }w
 
  public:
   UnionFind(int n) {
@@ -55,7 +55,7 @@ class UnionFind {
     if (parent[x] != x)
       parent[x] = find(parent[x]);
     return parent[x];
-  }
+  }   
 
   void merge(int x, int y) {
     int x_root = find(x);
