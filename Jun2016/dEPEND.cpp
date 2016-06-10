@@ -75,7 +75,7 @@ int main()
 	for(set< int >::iterator it=P.begin(); it!=P.end(); it++)
 	{
 		u = *it;
-		if(visited[u]==WHITE)
+		if(visited[u]==WHITE)   
 		{
 			subtotal = 0;
 			dfs(u);
