@@ -78,4 +78,4 @@ int main() {
     // cout << len(roots) << endl;
     cout << n - len(known) + len(roots) << endl;
     return 0;
-}
+}                    
