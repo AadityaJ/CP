@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
 	for(int i=0;i<n;i++) {
 		scanf("%d %d",&arr[i][0],&arr[i][1]);
 		int cnt=0;
-		for(int j=0;j<i;j++) cnt+=intersect(arr[i][0],arr[i][1],arr[j][0],arr[j][1]);
+		for(int j=0;j<i;j++) cnt+=intersect(arr[j][0],arr[j][1],arr[i][0],arr[i][1]);
 		printf("%d\n",cnt);
 	}
 	//printres(arr,n);
