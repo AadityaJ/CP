@@ -24,13 +24,14 @@ int main(int argc, char const *argv[])
 	while(t--){
 		int n;
 		scanf("%d",&n);
-		int prod=n;
-		for(int j=0;j<n;j++){
-			if(!prime[j]){
-				prod*=(1-(1/j));
+		float prod=(n*1.00);
+		for(float j=2.00;j<=n;j+=1.00){
+			//printf("%d\n",!prime[(int)j]);
+			if(!prime[(int)j] && (n%(int)j==0)){
+				prod*=(1.00-(1.00/(j*1.00)));
 			}
-		}
-		printf("%d\n",prod);
+		}//*/
+		printf("%d\n",(int)prod);
 	}
 	return 0;
 }
