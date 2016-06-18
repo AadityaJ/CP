@@ -1,29 +1,25 @@
 #include <stdio.h>
 
+/*long long int fact(int i){
+	if(!i) return 1;
+	return i*fact(i-1);
+}*/
+ 
 int main(int argc, char const *argv[])
 {
-	int a,b;
-	scanf("%d %d",&a,&b);
-	int cnt;
-	long long int prod=1;
-	for(int i=2;i<b;i++){
-		//int val=fact(i);
+	long long int a,b;
+	scanf("%lld %lld",&a,&b);
+	printf("%lld ecfecfe \n",a);
+	long long int cnt=0;
+	unsigned long long int val=1;
+	for(long long int i=1;i<b;i++){
+		printf("%lld %lld \n",i,val);
+		val*=i;
 		//printf("%lld\n",fact(i));
-		prod*=i;
-		//printf("%d\n",(prod%b));
-		if(!(prod%b)) break;
-		if(!(prod%a)){
-			// do while it is not /le by b
-			cnt=0;
-			while((prod%b)){
-				cnt++;
-				prod*=i;
-				i++;
-			}
-			break;
-		}
-		//if(!(val%a) && (val%b)) cnt++;
+		if(!(val%b)) break;
+		if(!(val%a) && (val%b)) cnt++;
+		//printf("%d %lld %d\n",i,val,cnt);
 	}
-	printf("%d\n",cnt);
+	printf("%lld\n",cnt);
 	return 0;
 }
