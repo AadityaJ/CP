@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 	long long int cnt=0;
 	unsigned long long int val=1;
 	for(long long int i=1;i<b;i++){
-		printf("%lld %lld \n",i,val);
+		//printf("%lld %lld \n",i,val);
 		val*=i;
 		//printf("%lld\n",fact(i));
 		if(!(val%b)) break;
