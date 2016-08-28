@@ -5,6 +5,7 @@ int main(int argc, char const *argv[]) {
     int t;
     cin>>t;
     while(t--){
+        cout<<50000*50000<<endl;
         int n,x;
         cin>>n;
         int arr[n];
