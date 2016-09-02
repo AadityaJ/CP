@@ -8,11 +8,18 @@ int main(int argc, char const *argv[]) {
         string str;
         cin>>str;
         int num1=0,num0=0;
+        /*char ch='';
+        while(ch!='\n'){
+            cin>>ch;
+            if(ch=='0') num0++;
+            else num1++;
+        }*/
         for(int i=0;i<str.length();i++){
-            if(str[i])num1++;
+            if(str[i]=='1')num1++;
             else num0++;
         }
-        if((num0-num1)==1 || (num1-num0)==1) cout<<"Yes\n";
+        //cout<<num0<<" "<<num1<<endl;
+        if(num0==1 || num1==1) cout<<"Yes\n";
         else cout<<"No\n";
 
     }
