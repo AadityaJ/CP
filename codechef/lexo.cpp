@@ -10,6 +10,9 @@ int main(int argc, char const *argv[]) {
         for(int i=0;i<str.length();i++){
             if(str[i]=='.' && i==(str.length()/2) && (str.length()%2)){
                 str[i]='a';
+            }else if(str[i]=='.'&& str[str.length()-i-1]=='.'){
+                str[i]='a';
+                str[str.length()-i-1]='a';
             }
             else if(str[i]=='.'){
                 str[i]=str[str.length()-i-1];
