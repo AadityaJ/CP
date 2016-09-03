@@ -17,7 +17,7 @@ int main(int argc, char const *argv[]) {
             else if(str[i]=='.'){
                 str[i]=str[str.length()-i-1];
             }
-            else if(str[i]!=str[str.length()-i-1]){str="-1";break;}
+            else if(str[i]!=str[str.length()-i-1] && str[str.length()-i-1]!='.'){str="-1";break;}
         }
         cout<<str<<endl;
     }
