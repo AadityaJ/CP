@@ -14,13 +14,13 @@ int main(int argc, char const *argv[]) {
     while(t--){
         int n;
         cin>>n;
-        int type[n][7];
+        int type[n][20];
         int score[n];
         int max=0,index=0;
         for(int i=0;i<n;i++){
             int x;
             cin>>x;
-            for(int j=1;j<7;j++) type[i][j]=0;
+            for(int j=1;j<20;j++) type[i][j]=0;
             score[i]=0;
             for(int j=0;j<x;j++){
                 int temp;
