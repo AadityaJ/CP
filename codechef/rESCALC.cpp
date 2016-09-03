@@ -20,17 +20,24 @@ int main(int argc, char const *argv[]) {
         for(int i=0;i<n;i++){
             int x;
             cin>>x;
-            for(int j=1;j<20;j++) type[i][j]=0;
-            score[i]=0;
+            for(int j=1;j<7;j++) type[i][j]=0;
             for(int j=0;j<x;j++){
                 int temp;
                 cin>>temp;
-                if(!type[i][temp]) score[i]++;
+                //if(!type[i][temp]) score[i]++;
                 type[i][temp]++;
 
             }
             //cout<<score[i]<<endl;
-            score[i]=getReward(score[i])+x;
+            //score[i]=getReward(score[i])+x;
+            int num_1=0,num_2=0,num_3=0;
+            for(int j=1;j<7;j++){
+                if(type[i][j]>=1) num_1++;
+                if(type[i][j]>=2) num_2++;
+                if(type[i][j]>=3) num_3++;
+            }
+            score[i]=getReward(num_1)+getReward(num_2)+getReward(num_3)+x;
+            //cout<<i<<" "<<score[i]<<" \n";
             if(max<score[i]){index=i;max=score[i];}
         }
         //cout<<max<<" "<<index<<endl;
