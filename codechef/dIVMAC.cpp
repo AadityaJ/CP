@@ -37,7 +37,7 @@ int result(int *prime_arr,int l,int r){
     return result;
 }
 /* for subtask 2*/
-void update_2(int *prime_arr,int *arr,int l,int r){
+void update_2(int *arr,int l,int r){
     for(int i=l;i<=r;i++){
         arr[i]=1;
     }
@@ -50,7 +50,7 @@ int result_2(int *arr,int l,int r){
     return result;
 }
 void gt_2(int n,int m){
-    int arr[n],prime_arr[n];
+    int arr[n];
     for(int i=0;i<n;i++) cin>>arr[i];
     /*for(int i=0;i<n;i++){
         prime_arr[i]=arr[i];
@@ -58,8 +58,8 @@ void gt_2(int n,int m){
     int op,l,r;
     for(int i=0;i<m;i++){
         cin>>op>>l>>r;
-        if(op==0) update_2(prime_arr,arr,l-1,r-1);
-        else cout<<result_2(prime_arr,l-1,r-1)<<" ";
+        if(op==0) update_2(arr,l-1,r-1);
+        else cout<<result_2(arr,l-1,r-1)<<" ";
     }
     cout<<endl;
 }
