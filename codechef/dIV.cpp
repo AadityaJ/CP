@@ -36,7 +36,7 @@ int result(int *prime_arr,int l,int r){
     }
     return result;
 }
-/* for subtask 2*/
+/************************* for subtask 2**********************************/
 void update_2(int *arr,int l,int r){
     for(int i=l;i<=r;i++){
         arr[i]=1;
@@ -63,7 +63,7 @@ void gt_2(int n,int m){
     }
     cout<<endl;
 }
-/*done*/
+/************************done for subtask 2*********************************/
 int main(int argc, char const *argv[]) {
     createPrime();
     int t;
