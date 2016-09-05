@@ -26,13 +26,19 @@ int main() {
         cin >> n >> m;
         vector <int> table1;
         vector <int> table2;
-        vector <int> graph[11];
+        vector <int> graph[n];
         for(int j = 0; j < m; j++) {
             int x, y;
             cin >> x >> y;
             graph[x - 1].push_back(y - 1);
             graph[y - 1].push_back(x - 1);
         }
+        // if there exists one node which is isolated , check
+        bool fl=false;
+        for(int i=0;i<n;i++){
+            if(graph[i].size()==0) {fl=1;break;}
+        }
+        if(fl){cout<<"NO\n";continue;}
         bool flag = true;
         for(int j = 0; j < n && flag; j++) {
             bool k_t1 = knowsAll(graph[j], table1);
