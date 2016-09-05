@@ -71,32 +71,34 @@ int main(int argc, char const *argv[]) {
     while(t--){
         int n,m;
         cin>>n>>m;
-        if(n>1000 && m>1000) gt_2(n,m);
-        int arr[n],prime_arr[n];
-        // create Prime arr
-        for(int i=0;i<n;i++) cin>>arr[i];
-        for(int i=0;i<n;i++){
-            int j;
-            /*for(j=2;prime[j]&& j<=arr[i] && (arr[i]%j!=0);j++) ; // keep doing till u get here
-            //cout<<arr[i]%j<<endl;
-            //cout<<arr[i]<<" "<<j<<endl;
-            if(j>arr[i]) prime_arr[i]=1;
-            else if(!prime[j]) prime_arr[i]=arr[i];
-            else prime_arr[i]=j;*/
-            prime_arr[i]=getlpd(arr[i]);
-        //    cout<<arr[i]<<" "<<prime_arr[i]<<endl;
+        if(n>1000 || m>1000) {gt_2(n,m);}
+        else {
+            int arr[n],prime_arr[n];
+            // create Prime arr
+            for(int i=0;i<n;i++) cin>>arr[i];
+            for(int i=0;i<n;i++){
+                int j;
+                /*for(j=2;prime[j]&& j<=arr[i] && (arr[i]%j!=0);j++) ; // keep doing till u get here
+                //cout<<arr[i]%j<<endl;
+                //cout<<arr[i]<<" "<<j<<endl;
+                if(j>arr[i]) prime_arr[i]=1;
+                else if(!prime[j]) prime_arr[i]=arr[i];
+                else prime_arr[i]=j;*/
+                prime_arr[i]=getlpd(arr[i]);
+            //    cout<<arr[i]<<" "<<prime_arr[i]<<endl;
+            }
+            int op,l,r;
+            //for(int i=0;i<n;i++) cout<<prime_arr[i]<<"  ";
+            //cout<<endl;
+            for(int i=0;i<m;i++){
+                cin>>op>>l>>r;
+                //for(int i=0;i<n;i++) cout<<prime_arr[i]<<" ";
+                //cout<<endl<<l<<" "<<r<<endl;
+                if(op==0) update(prime_arr,arr,l-1,r-1);
+                else cout<<result(prime_arr,l-1,r-1)<<" ";
+            }
+            cout<<endl;
         }
-        int op,l,r;
-        //for(int i=0;i<n;i++) cout<<prime_arr[i]<<"  ";
-        //cout<<endl;
-        for(int i=0;i<m;i++){
-            cin>>op>>l>>r;
-            //for(int i=0;i<n;i++) cout<<prime_arr[i]<<" ";
-            //cout<<endl<<l<<" "<<r<<endl;
-            if(op==0) update(prime_arr,arr,l-1,r-1);
-            else cout<<result(prime_arr,l-1,r-1)<<" ";
-        }
-        cout<<endl;
     }
     return 0;
 }
