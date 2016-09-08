@@ -26,7 +26,7 @@ int main() {
         cin >> n >> m;
         vector <int> table1;
         vector <int> table2;
-        vector <int> graph[n];
+        vector <int> graph[1001];
         for(int j = 0; j < m; j++) {
             int x, y;
             cin >> x >> y;
