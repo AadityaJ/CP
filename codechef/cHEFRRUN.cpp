@@ -13,7 +13,12 @@ public:
     void printGraph();
 };
 void Graph::printGraph(){
-    
+    for(int i=1;i<=n;i++){
+        cout<<endl<<i<<" :: ";
+        for(int j=0;j<v[i].size();j++){
+            cout<<v[i][j]<<" ";
+        }
+    }
 }
 bool Graph::isCyclic(int node,bool *visited,bool *resstack){
     if(visited[node]==false){
@@ -47,7 +52,8 @@ int main(int argc, char const *argv[]) {
         cin>>no;
         g.n=no;
         int val;
-        for(int i=1;i<=no;i++) {cin>>val; g.addEdge(i,((i+val+1)%no));}
+        for(int i=1;i<=no;i++) {cin>>val;int x=(i+val+1)%(no);if(x==0){x=no;} g.addEdge(i,x);}
+        g.printGraph();cout<<endl;
         int count=0;
         /*for(int i=0;i<n;i++){
             int j=i;
