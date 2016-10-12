@@ -10,7 +10,7 @@ void ap(int *arr,int l,int r,int x){
         diff+=x;
     }
 }
-int calcTrai(int x){
+int calcTrai(long long int x){
     int res=0;
     while(x){
         if(x%10==0) res++;
@@ -19,11 +19,10 @@ int calcTrai(int x){
     return res;
 }
 int zero(int *arr,int l,int r){
-    int prod=1;
+    long long int prod=1;
     for(int i=l;i<=r;i++){
         prod*=arr[i];
     }
-
     return calcTrai(prod);
 }
 void printArr(int *arr,int n){
@@ -49,7 +48,7 @@ int main(int argc, char const *argv[]) {
                 case 2:cin>>l>>r>>x;ap(arr,l,r,x);break;
                 case 3:cin>>l>>r;ans+=zero(arr,l,r);break;
             }
-            printArr(arr,n);
+            //printArr(arr,n);
         }
         cout<<ans<<endl;
     }
