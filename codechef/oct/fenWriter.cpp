@@ -15,16 +15,16 @@ int main(int argc, char const *argv[]) {
     while(t--){
         string l1,l2,l3;
         int n;
-        //cout<<findVal("1001");
+        //cout<<findVal("001");
         cin>>l1>>l2>>l3>>n;
         string num="";
         num+=l1;
         for(int i=0;i<n;i++)num+=l2;
         num+=l3;
         //cout<<findVal(num)<<endl;
-        long long int val=findVal(num);
+        //long long int val=findVal(num);
         int count=0;
-        while(val>1){
+        while(findVal(num)>=1){
             count++;
             val=val&(val+1);
             val--;
