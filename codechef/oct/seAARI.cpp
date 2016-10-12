@@ -15,8 +15,8 @@ int main(int argc, char const *argv[]) {
         last=temp;
     }
     avg_diff/=n;
-    //cout<<avg_diff<<"\n";
-    cout<<arr[0]<<" "<<avg_diff;
-    cout<<"\n-1";
+    cout<<arr[0]<<" "<<avg_diff<<endl;
+    // now lets see about the swaps
+    cout<<"-1";
     return 0;
 }
