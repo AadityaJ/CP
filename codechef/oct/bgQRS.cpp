@@ -1,25 +1,25 @@
 #include <iostream>
 using namespace std;
-void mult(int *arr,int l,int r,int x){
-    for(int i=l;i<=r;i++) arr[i]*=x;
+void mult(unsigned long long int *arr,long long int l,long long int r,long long int x){
+    for(long long int i=l;i<=r;i++) arr[i]*=x;
 }
-void ap(int *arr,int l,int r,int x){
-    int diff=x;
-    for(int i=l;i<=r;i++){
+void ap(unsigned long long int *arr,long long int l,long long int r,long long int x){
+    long long int diff=x;
+    for(long long int i=l;i<=r;i++){
         arr[i]=diff;
         diff+=x;
     }
 }
-/*int calcTrai(long long int x){
-    int res=0;
+/*long long int calcTrai(long long long long int x){
+    long long int res=0;
     while(x){
         if(x%10==0) res++;
         x/=10;
     }
     return res;
 }*/
-int numPowof(int x,int mod){
-    int count=0;
+long long int numPowof(long long int x,long long int mod){
+    long long int count=0;
     if(x%mod!=0) return count;
     while(x){
         x/=mod;
@@ -28,9 +28,9 @@ int numPowof(int x,int mod){
     }
     return ++count;
 }
-int zero(int *arr,int l,int r){
-    int num_twos=0,num_fives=0,num_tens=0;
-    for(int i=l;i<=r;i++){
+long long int zero(unsigned long long int *arr,long long int l,long long int r){
+    long long int num_twos=0,num_fives=0,num_tens=0;
+    for(long long int i=l;i<=r;i++){
         //prod*=arr[i];
         //if(arr[i]%10==0) num_tens++;
         //else if(arr[i]%5==0) num_fives++;
@@ -43,23 +43,23 @@ int zero(int *arr,int l,int r){
     //cout<<num_tens<<" "<<num_twos<<" "<<num_fives<<endl;
     return num_tens+min(num_twos,num_fives);
 }
-/*void printArr(int *arr,int n){
-    for(int i=1;i<=n;i++) cout<<arr[i]<<" ";
+/*void prlong long intArr(long long int *arr,long long int n){
+    for(long long int i=1;i<=n;i++) cout<<arr[i]<<" ";
     cout<<endl;
 }*/
 int main(int argc, char const *argv[]) {
-    int t;
+    long long int t;
     cin>>t;
     while(t--){
         //cout<<"numPowof2 "<<numPowof(2000,10)<<endl;
-        int n,m;
+        long long int n,m;
         cin>>n>>m;
-        int arr[n+1];
-        for(int i=1;i<=n;i++){cin>>arr[i];}
-        int l,r,x,type;
-        int ans=0;
+        unsigned long long int arr[n+1];
+        for(long long int i=1;i<=n;i++){cin>>arr[i];}
+        long long int l,r,x,type;
+        long long int ans=0;
         //cout<<zero(arr,2,5);
-        for(int i=0;i<m;i++){
+        for(long long int i=0;i<m;i++){
             cin>>type;
             //cout<<type<<endl;
             switch(type){
