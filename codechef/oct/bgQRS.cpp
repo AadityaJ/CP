@@ -10,29 +10,48 @@ void ap(int *arr,int l,int r,int x){
         diff+=x;
     }
 }
-int calcTrai(long long int x){
+/*int calcTrai(long long int x){
     int res=0;
     while(x){
         if(x%10==0) res++;
         x/=10;
     }
     return res;
+}*/
+int numPowof(int x,int mod){
+    int count=0;
+    if(x%mod!=0) return count;
+    while(x){
+        x/=mod;
+        count++;
+        if(x%mod!=0) return count;
+    }
+    return ++count;
 }
 int zero(int *arr,int l,int r){
-    long long int prod=1;
+    int num_twos=0,num_fives=0,num_tens=0;
     for(int i=l;i<=r;i++){
-        prod*=arr[i];
+        //prod*=arr[i];
+        //if(arr[i]%10==0) num_tens++;
+        //else if(arr[i]%5==0) num_fives++;
+        //else if(arr[i]%2==0) num_twos++;
+        //num+=min(numPowof(arr[i],2),numPowof(arr[i],5))+numPowof(arr[i],10);
+        num_tens+=numPowof(arr[i],10);
+        num_twos+=(numPowof(arr[i],2)-numPowof(arr[i],10));
+        num_fives+=(numPowof(arr[i],5)-numPowof(arr[i],10));
     }
-    return calcTrai(prod);
+    //cout<<num_tens<<" "<<num_twos<<" "<<num_fives<<endl;
+    return num_tens+min(num_twos,num_fives);
 }
-void printArr(int *arr,int n){
+/*void printArr(int *arr,int n){
     for(int i=1;i<=n;i++) cout<<arr[i]<<" ";
     cout<<endl;
-}
+}*/
 int main(int argc, char const *argv[]) {
     int t;
     cin>>t;
     while(t--){
+        //cout<<"numPowof2 "<<numPowof(2000,10)<<endl;
         int n,m;
         cin>>n>>m;
         int arr[n+1];
