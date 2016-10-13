@@ -16,6 +16,17 @@ long long int trailones(string str){
     }
     return num;
 }
+long long int actualtrail(string l1,string l2,string l3,int n){
+    int x_l1=trailones(l1);
+    int x_l2=trailones(l2);
+    int x_l3=trailones(l3);
+    if(x_l3!=l3.length()) return x_l3;
+
+    if(x_l2!=l2.length()) return x_l3+x_l2;
+
+    return x_l3+(n*x_l2)+x_l1;
+
+}
 int main(int argc, char const *argv[]) {
     int t;
     cin>>t;
@@ -23,12 +34,16 @@ int main(int argc, char const *argv[]) {
         string l1,l2,l3;
         int n;
         cin>>l1>>l2>>l3>>n;
-        string num;
-        num.append(l1);
-        for(int i=0;i<n;i++) num.append(l2);
-        num.append(l3);
-        long long int count=(numones(num)+1);
-        count-=trailones(num);
+        //string num;
+        //num.append(l1);
+        //for(int i=0;i<n;i++) num.append(l2);
+        //num.append(l3);
+        //long long int count=(numones(num)+1);
+        long long int count=(numones(l1));
+        count+=(numones(l3));
+        count+=(numones(l2)*n);
+        count++;
+        count-=actualtrail(l1,l2,l3,n);
         cout<<count<<endl;
     }
     return 0;
