@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
-void mult(unsigned long long int *arr,long long int l,long long int r,long long int x){
+void mult(unsigned long long int *arr,int l,int r,int x){
     for(long long int i=l;i<=r;i++) arr[i]*=x;
 }
-void ap(unsigned long long int *arr,long long int l,long long int r,long long int x){
+void ap(unsigned long long int *arr,int l,int r,int x){
     long long int diff=x;
     for(long long int i=l;i<=r;i++){
         arr[i]=diff;
@@ -20,7 +20,7 @@ long long int numPowof(long long int x,long long int mod){
     }
     return ++count;
 }
-long long int zero(unsigned long long int *arr,long long int l,long long int r){
+long long int zero(unsigned long long int *arr,int l,int r){
     long long int num_twos=0,num_fives=0,num_tens=0;
     for(long long int i=l;i<=r;i++){
         num_tens+=numPowof(arr[i],10);
@@ -38,8 +38,10 @@ int main(int argc, char const *argv[]) {
         cin>>n>>m;
         unsigned long long int arr[n+1];
         for(long long int i=1;i<=n;i++){cin>>arr[i];}
-        long long int l,r,x,type;
+        int l,r,x,type;
         long long int ans=0;
+        // modify the array to three types
+
         for(long long int i=0;i<m;i++){
             cin>>type;
             //cout<<type<<endl;
