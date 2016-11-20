@@ -2,14 +2,16 @@
 #include <iostream>
 #define MOD 1000000007
 using namespace std;
-long pow2(int x){
-    long prod=1;
-    for(int i=0;i<x;i++){
-        prod*=2;
-        prod=prod%MOD;
+long power2(int N){
+    if(N==0){
+        return 1;
+    } else if(N%2==0){
+        int H=power2(N/2);
+        return H*H%MOD;
+    } else {
+        int H=power2((N-1)/2);
+        return H*H*2%MOD;
     }
-    prod=prod%MOD;
-    return prod;
 }
 int main(int argc, char const *argv[]) {
     int t;
@@ -17,8 +19,9 @@ int main(int argc, char const *argv[]) {
     while(t--){
         int n;
         cin>>n;
+        if(n==1){cout<<"0"<<endl;continue;}
         //cout<<pow2(2)<<pow2(4)<<(6%5);
-        
+        cout<<(power2(n-1))-2<<endl;
     }
     return 0;
 }
