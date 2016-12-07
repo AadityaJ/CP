@@ -5,7 +5,7 @@ using namespace std;
 int map[8]={4,5,6,1,2,3,8,7};
 string getType(int a){
     a=(a%8);
-    a++;
+    if(a==0) a=8;
     //cout<<a<<endl;
     switch(a){
         case 1: return "LB";
@@ -24,12 +24,10 @@ int main(int argc, char const *argv[]) {
     while(t--){
         int n;
         cin>>n;
-        int x=(n%8)+1;
-        int y=(n/8);
-        int x1=map[x-1];
-        int re=x1*y;
-        string result=getType(x)+to_string(re);
-        cout<<result<<endl;
+        int x=(n%8);
+        if(x==0) x=8;
+        int res=map[x-1]+((n/8)*8);
+        cout<<to_string(res)+getType(map[x-1])<<endl;
     }
     return 0;
 }
