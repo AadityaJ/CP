@@ -17,6 +17,7 @@ string getType(int a){
         case 3: return "UB";
         case 6: return "UB";
     }
+    return "0";
 }
 int main(int argc, char const *argv[]) {
     int t;
@@ -26,7 +27,7 @@ int main(int argc, char const *argv[]) {
         cin>>n;
         int x=(n%8);
         if(x==0) x=8;
-        int res=map[x-1]+((n/8)*8);
+        int res=map[x-1]+(((n-1)/8)*8);
         cout<<to_string(res)+getType(map[x-1])<<endl;
     }
     return 0;
