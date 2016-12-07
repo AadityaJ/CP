@@ -1,7 +1,7 @@
 //https://www.codechef.com/DEC16/problems/KIRLAB
 #include <iostream>
 using namespace std;
-int gcd(int n1,int n2){
+/*int gcd(int n1,int n2){
     while(n1 != n2){
         if(n1 > n2)
             n1 -= n2;
@@ -9,6 +9,15 @@ int gcd(int n1,int n2){
             n2 -= n1;
         }
     return n1;
+}*/
+int gcd(int a, int b) {
+    int t;
+    while(b != 0){
+        t = a;
+        a = b;
+        b = t%b;
+    }
+    return a;
 }
 int lis( int arr[], int n )
 {
@@ -17,11 +26,13 @@ int lis( int arr[], int n )
         lis[i] = 1;
     for (i = 1; i < n; i++ )
         for (j = 0; j < i; j++ )
-            if ( gcd(arr[i],arr[j])>1 && lis[i] < lis[j] + 1)
+            if ( gcd(arr[i],arr[j])>1 && lis[i] < lis[j] + 1){
                 lis[i] = lis[j] + 1;
-    for (i = 0; i < n; i++ )
+                if(lis[i]>max) max=lis[i];
+            }
+    /*for (i = 0; i < n; i++ )
         if (max < lis[i])
-            max = lis[i];
+            max = lis[i];*/
 
     return max;
 }
