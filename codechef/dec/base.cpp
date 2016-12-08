@@ -8,10 +8,13 @@ int main(int argc, char const *argv[]) {
     while(t--){
         int n;
         cin>>n;
-        int count=0;
-        for(int i=2;i<=n;i++){
-            int j=pow(i,(log(n)/log(i)));
-            cout<<j<<endl;
+        if(n==0){cout<<"0"<<endl;continue;}
+        if(n==1){cout<<"INFINITY\n";continue;}
+        int count=1;
+        //cout<<"\n\nFOR NUMBER  :: "<<n<<endl;
+        for(int i=2;i<n;i++){
+            int j=pow(i,(int)(log(n)/log(i)));
+            //cout<<"BASE ::"<<i<<" "<<j<<endl;
             if(j<=n && n<(2*j)) count++;
         }
         std::cout << count << std::endl;
