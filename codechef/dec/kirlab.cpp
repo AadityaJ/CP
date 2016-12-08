@@ -12,6 +12,9 @@ using namespace std;
 }*/
 int gcd(int a, int b) {
     int t;
+    if(a==b) return a;
+    if(b==1) return 1;
+    if(a%b==0) return b;
     while(b != 0){
         t = a;
         a = b;
@@ -28,11 +31,10 @@ int lis( int arr[], int n )
         for (j = 0; j < i; j++ )
             if ( gcd(arr[i],arr[j])>1 && lis[i] < lis[j] + 1){
                 lis[i] = lis[j] + 1;
-                if(lis[i]>max) max=lis[i];
             }
-    /*for (i = 0; i < n; i++ )
+    for (i = 0; i < n; i++ )
         if (max < lis[i])
-            max = lis[i];*/
+            max = lis[i];
 
     return max;
 }
