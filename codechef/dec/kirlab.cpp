@@ -22,9 +22,10 @@ int gcd(int a, int b) {
     }
     return a;
 }
-int lis( int arr[], int n )
+long long int lis( long long int arr[], int n )
 {
-    int lis[n], i, j, max = 0;
+    int lis[n], i, j;
+    long long int max = 0;
     for (i = 0; i < n; i++ )
         lis[i] = 1;
     for (i = 1; i < n; i++ )
@@ -44,7 +45,7 @@ int main(int argc, char const *argv[]) {
     while(t--){
         int n;
         cin>>n;
-        int arr[n];
+        long long int arr[n];
         for(int i=0;i<n;i++) cin>>arr[i];
         cout<<lis(arr,n)<<endl;
     }
