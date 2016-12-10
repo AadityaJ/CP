@@ -13,12 +13,14 @@ long int floor_log(long a,int b){
     return i;
 }
 int main(int argc, char const *argv[]) {
-    int t;
-    cin>>t;
-    while(t--){
+    //int t;
+    //cin>>t;
+    //while(t--){
         //cout<<floor_log(17179869180,2)<<endl;
         double n;
-        cin>>n;
+        for(n=0;n<100;n++){
+    //    cin>>n;
+        cout<<n<<" ";
         if(n==0){cout<<"0"<<endl;continue;}
         if(n==1){cout<<"INFINITY\n";continue;}
         double count=1;
@@ -28,5 +30,6 @@ int main(int argc, char const *argv[]) {
         }
         std::cout << count << std::endl;
     }
+    //}
     return 0;
 }

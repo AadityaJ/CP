@@ -15,6 +15,8 @@ int gcd(int a, int b) {
     if(a==b) return a;
     if(b==1) return 1;
     if(a%b==0) return b;
+    if(a%2==0 && b%2==0) return 2;
+    if(a%3==0 && b%3==0) return 3;
     while(b != 0){
         t = a;
         a = b;
