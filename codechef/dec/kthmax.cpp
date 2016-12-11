@@ -15,9 +15,9 @@ void init(int n){
         x=y+1;
         y=x+(n-j)-1;
     }
-    for(int j=1;j<=n;j++){
-        cout<<p[j].first<<" "<<p[j].second<<endl;
-    }
+//    for(int j=1;j<=n;j++){
+//        cout<<p[j].first<<" "<<p[j].second<<endl;
+//    }
 }
 int main(int argc, char const *argv[]) {
     int t;
@@ -30,18 +30,18 @@ int main(int argc, char const *argv[]) {
         for(int i=0;i<n;i++) cin>>arr[i+1];
         sort(arr+1,arr+n+1,myComp);
         //for(int i=0;i<n;i++) cout<<arr[i+1]<<" ";
-        /*for(int i=0;i<m;i++){
+        for(int i=0;i<m;i++){
             int x,ans;
             cin>>x;
             for(int j=1;j<=n;j++){
-                if(p[i].first<=x && p[i].second>=x){
-                    ans=i;
+                if(p[j].first<=x && p[j].second>=x){
+                    ans=j;
                     break;
                 }
             }
-            cout<<arr[ans-1];
-        }*/
-        cout<<endl;
+            cout<<arr[ans]<<endl;
+        }
+//        cout<<endl;
     }
     return 0;
 }
