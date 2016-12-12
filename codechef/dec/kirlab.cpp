@@ -65,3 +65,8 @@ int main(int argc, char const *argv[]) {
     }
     return 0;
 }
+/*
+1)Cannot use LIS (which is already O(n^2)) with gcd (O(logn)) which becomes O(n^2 logn)   (Algo issue)
+2)Cannot find coprime in strictly < O(logN)   (Math Issue)
+3)Cannot apply convex hull optmization to this problem    (Algo issue)
+*/

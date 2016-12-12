@@ -1,6 +1,6 @@
 //https://www.codechef.com/DEC16/problems/BASE
-#include <cmath>
 #include <iostream>
+#include <cmath>
 using namespace std;
 long long int floor_log(long long int a,int b){
     long int pow_er=b;
@@ -30,3 +30,7 @@ int main(int argc, char const *argv[]) {
     }
     return 0;
 }
+/*
+1)Cannot find pattern of N in different bases. It must exist.    (Math Issue)
+2)So becomes O(NlgN) at worst. Issues in time with that  (Math Issue)
+*/

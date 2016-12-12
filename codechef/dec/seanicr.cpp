@@ -67,3 +67,6 @@ int main(int argc, char const *argv[]) {
     }
     return 0;
 }
+/*
+1)Convex Optimization only for smaller test cases. Cannot find Pattern(Math) for larger test cases.  (Math Issue)
+*/
