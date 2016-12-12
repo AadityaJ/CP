@@ -3,8 +3,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-// Binary search (note boundaries in the caller)
-int CeilIndex(int *v, int l, int r, int key) {
+int CeilIndex(std::vector<int> &v, int l, int r, int key) {
     while (r-l > 1) {
     int m = l + (r-l)/2;
     if (v[m] >= key)
@@ -16,16 +15,15 @@ int CeilIndex(int *v, int l, int r, int key) {
     return r;
 }
 
-int lis(int *v,int start,int end) {
-    if (start==end)
+int LongestIncreasingSubsequenceLength(std::vector<int> &v) {
+    if (v.size() == 0)
         return 0;
 
-    //std::vector<int> tail(end-start, 0);
-    int tail[end-start];
+    std::vector<int> tail(v.size(), 0);
     int length = 1; // always points empty slot in tail
 
     tail[0] = v[0];
-    for (int i = start; i < end; i++) {
+    for (size_t i = 1; i < v.size(); i++) {
         if (v[i] < tail[0])
             // new smallest value
             tail[0] = v[i];
@@ -41,19 +39,30 @@ int lis(int *v,int start,int end) {
 
     return length;
 }
-
+int lis(int *arr,int start,int end){
+    std::vector<int> v((end-start+1));
+    int x=0;
+    //for(int i=start;i<=end;i++)
+    //    cout<<arr[i]<<" ";
+    for(int i=start;i<=end;i++){
+        v[x]=arr[i];
+        x++;
+    }
+    //for(int i=0;i<v.size();i++) cout<<v[i]<<" ";
+    return LongestIncreasingSubsequenceLength(v);
+}
 int main(int argc, char const *argv[]) {
     int t;
     cin>>t;
     while(t--){
         int n,m;
         cin>>n>>m;
-        int arr[n];
-        for(int i=0;i<n;i++) cin>>arr[i];
+        int arr[n+1];
+        for(int i=1;i<=n;i++) cin>>arr[i];
         for(int i=0;i<m;i++){
             int x,y;
             cin>>x>>y;
-            cout<<lis(arr,y,x-1)<<endl;
+            cout<<lis(arr,x,y)<<endl;
         }
     }
     return 0;
