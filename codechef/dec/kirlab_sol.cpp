@@ -33,11 +33,7 @@ void comp()
         }
     }
 }
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+int main(int argc, char const *argv[]){
     comp();
     int t,n,x,x2,maxi,maxo,val;
     cin>>t;
