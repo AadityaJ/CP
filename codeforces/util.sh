@@ -1,4 +1,5 @@
 mkdir $1
+touch "$1/comments.txt"
 touch "$1/a-out"
 touch "$1/a.cpp"
 touch "$1/b.cpp"
