@@ -12,7 +12,7 @@ str3="#include <vector>"
 str4="#include <algorithm>"
 str5="using namespace std;"
 str6="int main(int argc, char const *argv[]) {\n"
-str7="\t     return 0;"
+str7="\treturn 0;"
 str8="}"
 for file in *.cpp; do
   echo -e $str1 >> "$file"
