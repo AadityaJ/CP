@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <limits.h>
 // Number of vertices in the graph
+
 #define V 410
 using namespace std;
 int rail[V][V];
