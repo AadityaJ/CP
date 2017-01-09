@@ -31,10 +31,13 @@ int main(int argc, char const *argv[]) {
         int p;
         pt t;
         cin>>p>>t.x>>t.y;
-        int theta=(p/100)*360;
+        float theta=(p/100.00)*360.00;
+        //cout<<theta<<endl;
         pt end;
-        end.x=50*sin(theta*PI/180);
-        end.y=50*cos(theta*PI/180);
+        //cout<<sin(theta*PI/180.00)<<endl;
+        end.x=50.00*sin(theta*PI/180.00)+50.00;
+        end.y=50*cos(theta*PI/180)+50.00;
+        cout<<end.x<<" "<<end.y<<endl;
         cout<<isInsideSector(t,ori,start,end,(50*50))<<endl;
     }
     return 0;
