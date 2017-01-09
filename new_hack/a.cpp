@@ -6,10 +6,10 @@ struct pt{
     int x,y;
 };
 bool isClockwise(pt p1,pt p2){
-    return -p1.x*p2.y+p1.y*p2.x > 0;
+    return ((-p1.x)*p2.y)+(p1.y*p2.x) > 0;
 }
 bool isWithinRadius(pt p1,int radiussq){
-    return p1.x*p1.x+p1.y*p1.y <= radiussq;
+    return (p1.x*p1.x)+(p1.y*p1.y) <= radiussq;
 }
 bool isInsideSector(pt t,pt centre,pt sectorStart,pt sectorEnd,int radiussq){
     pt omg;
@@ -25,7 +25,7 @@ int main(int argc, char const *argv[]) {
     ori.x=50;
     ori.y=50;
     cin>>te;
-    start.x=100;
+    start.x=50;
     start.y=100;
     for(int index=1;index<=te;index++){
         int p;
