@@ -5,7 +5,7 @@
 using namespace std;
 long long f(long long c,long long d){
 	if(c<(2*d)) return 4*d;
-	else return 4*d+(c-2*d)*4;
+	else return 4*(c-d);
 }
 long long mx(long c,long d){
 	return 4*(c+d);
