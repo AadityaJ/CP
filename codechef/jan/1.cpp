@@ -7,7 +7,7 @@ long long f(long long c,long long d){
 	if(c<(2*d)) return 4*d;
 	else return 4*(c-d);
 }
-long long mx(long c,long d){
+long long mx(long long c,long long d){
 	return 4*(c+d);
 }
 int main(int argc, char const *argv[]) {
