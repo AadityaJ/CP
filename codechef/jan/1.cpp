@@ -14,7 +14,7 @@ int main(int argc, char const *argv[]) {
 	int t;
 	cin>>t;
 	while(t--){
-		long long int c,d,l;
+		long long c,d,l;
 		cin>>c>>d>>l;
 		if(l%4!=0){cout<<"no\n";continue;}
 		if(l>=f(c,d) && l<=mx(c,d)) cout<<"yes\n";
