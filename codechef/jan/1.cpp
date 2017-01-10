@@ -11,14 +11,15 @@ long long mx(long c,long d){
 	return 4*(c+d);
 }
 int main(int argc, char const *argv[]) {
-	int t;
+	long long int t;
 	cin>>t;
 	while(t--){
 		long long c,d,l;
 		cin>>c>>d>>l;
 		if(l%4!=0){cout<<"no\n";continue;}
-		if(l>=f(c,d) && l<=mx(c,d)) cout<<"yes\n";
-		else cout<<"no\n";
+		if(l<f(c,d))cout<<"no\n";
+		else if(l>mx(c,d))cout<<"no\n";
+		else cout<<"yes\n";
 	}
 	 return 0;
 }
