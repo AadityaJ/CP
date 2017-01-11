@@ -1,34 +1,42 @@
 #include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <utility>
+#include <queue>
 using namespace std;
-
-int main(int argc, char const *argv[]){
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        int prod[n];
-        int arr[n][n];
-        int res[n][n];
-        for(int i=0;i<n;i++) cin>>prod[i];
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++) arr[i][j]=1;
-            arr[i][i]=0;
+int main(int argc, char const *argv[]) {
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+        int arr[n+1];
+        vector<int> G[500];
+        for(int i=1;i<=n;i++) cin>>arr[i];
+        for(int i=1;i<n;i++){
+            int a,b;
+            cin>>a>>b;
+            G[a].push_back(b);
+            G[b].push_back(a);
         }
-        for(int i=0;i<n-1;i++){
-            int x,y;
-            cin>>x>>y;
-            arr[x-1][y-1]=arr[y-1][x-1]=0;
-        }
-        for(int i=0;i<n;i++){
-            int mx=0,index;
-            for(int j=0;j<n;j++){
-                if(arr[i][j]==0) res[i][j]=0;
-                else res[i][j]=prod[j];
-                if(mx<res[i][j]){mx=res[i][j];index=j;}
+        if(n==1){cout<<"yes";continue;}
+        sort(arr,arr+n+1);
+        //for(int i=1;i<=n;i++) cout<<arr[i]<<" ";
+        for(int i=1;i<=n;i++){
+            int x=n;
+            bool flag=0;
+            while(1){
+                flag=0;
+                for(int j=0;j<G[i].size();j++){
+                    if(G[i][j]==x){flag=1;break;}
+                }
+                if(flag==0 && x!=i) break;
+                x--;
             }
-            cout<<index+1<<" ";
+            cout<<x<<" ";
         }
-    }
-
+        cout<<endl;
+	}
+	 return 0;
 }
