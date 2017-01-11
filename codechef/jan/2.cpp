@@ -38,15 +38,16 @@ int main(int argc, char const *argv[]) {
 			}
 		}*/
 		for(int i=1;i<=n;i++){
-			for(int j=0;j<G[i].size();j++){
-				pair<int,int> x;
-				if(pq.top().first==G[i][j]){
-					x.first=pq.top().first;
-					x.second=pq.top().second;
-					q.push(x);
-					pq.pop();
+			while(1){
+				bool flg=1;
+				for(int j=0;j<G[i].size();j++){
+					if(pq.top().first==G[i][j]){flg=0;}
 				}
+				if(flg==1 &&pq.top().first==i)break;
+				q.push(pq.top());
+				pq.pop();
 			}
+			//cout<<q.size()<<" ";
 			cout<<pq.top().first<<" ";
 			for(int j=0;j<q.size();j++){
 				pq.push(q.front());
