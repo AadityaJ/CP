@@ -23,3 +23,4 @@ int main(int argc, char const *argv[]) {
 	}
 	 return 0;
 }
+//bug :: mx had long instead of long long XD
