@@ -4,6 +4,26 @@
 #include <algorithm>
 using namespace std;
 int main(int argc, char const *argv[]) {
-
+	int t;
+	cin>>t;
+	while(t--){
+		int n,m;
+		char tnk[n][m];
+		cin>>n>>m;
+		for(int i=0;i<n;i++){
+			for(int j=0;j<m;j++){
+				char c;
+				cin>>c;
+				//cout<<c;
+				tnk[i][j]=c;
+			}//cout<<endl;
+		}
+		for(int i=0;i<n;i++){
+			for(int j=0;j<m;j++){
+				cout<<tnk[i][j];
+			}
+			cout<<endl;
+		}
+	}
 	 return 0;
 }
