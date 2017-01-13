@@ -27,18 +27,19 @@ int main(int argc, char const *argv[]) {
         sort(arr+1,arr+n+1,ops);
         //for(int i=1;i<=n;i++) cout<<arr[i].first<<" "<<arr[i].second<<" ";
         for(int i=1;i<=n;i++){
-            int ind=n;
-            int x=arr[n].first;
+            int ind=1;
+            int x=arr[ind].first;
             bool flag=0;
             while(1){
                 x=arr[ind].first;
+                //cout<<x<<" ";
                 flag=0;
                 for(int j=0;j<G[i].size();j++){
                     if(G[i][j]==x){flag=1;break;}
                 }
                 if(flag==0 && x!=i) break;
         //        cout<<ind<<endl;
-                ind--;
+                ind++;
             }
             cout<<x<<" ";
         }
