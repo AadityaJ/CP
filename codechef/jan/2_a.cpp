@@ -5,24 +5,27 @@
 #include <utility>
 #include <queue>
 using namespace std;
+bool operator(pair<int,int> n1,pair<int,int> n2){
+    return n1.second<n2.second;
+}
 int main(int argc, char const *argv[]) {
 	int t;
 	cin>>t;
 	while(t--){
 		int n;
 		cin>>n;
-        int arr[n+1];
+        pair<int,int> arr[500];
         vector<int> G[500];
-        for(int i=1;i<=n;i++) cin>>arr[i];
+        for(int i=1;i<=n;i++) {cin>>arr[i].second;arr[i].first=i;}
         for(int i=1;i<n;i++){
             int a,b;
             cin>>a>>b;
             G[a].push_back(b);
             G[b].push_back(a);
         }
-        if(n==1){cout<<"yes";continue;}
-        sort(arr,arr+n+1);
-        //for(int i=1;i<=n;i++) cout<<arr[i]<<" ";
+        //if(n==1){cout<<"1";continue;}
+        sort(arr,arr+n+1,operator);
+        for(int i=1;i<=n;i++) cout<<arr[i].first<<" "<<arr[i].second<<" ";
         for(int i=1;i<=n;i++){
             int x=n;
             bool flag=0;
@@ -38,5 +41,5 @@ int main(int argc, char const *argv[]) {
         }
         cout<<endl;
 	}
-	 return 0;
+	return 0;
 }
