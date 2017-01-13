@@ -8,22 +8,16 @@ int main(int argc, char const *argv[]) {
 	cin>>t;
 	while(t--){
 		int n,m;
-		char tnk[n][m];
+		string tnk[100];
 		cin>>n>>m;
 		for(int i=0;i<n;i++){
-			for(int j=0;j<m;j++){
-				char c;
-				cin>>c;
-				//cout<<c;
-				tnk[i][j]=c;
-			}//cout<<endl;
+			cin>>tnk[i];
 		}
-		for(int i=0;i<n;i++){
-			for(int j=0;j<m;j++){
-				cout<<tnk[i][j];
-			}
+		/*for(int i=0;i<n;i++){
+			cout<<tnk[i];
 			cout<<endl;
-		}
+		}*/
+		
 	}
 	 return 0;
 }
