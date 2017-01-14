@@ -9,7 +9,7 @@ int main(int argc, char const *argv[]) {
 	while(t--){
 		int n,m;
 		cin>>n>>m;
-		string tnk[100];
+		string tnk[n];
 		for(int i=0;i<n;i++){
 			cin>>tnk[i];
 		}
@@ -25,10 +25,26 @@ int main(int argc, char const *argv[]) {
 			}
 		}
 		for(int i=0;i<n;i++){
-			if(tnk[i][0]=='W'||tnk[0][i]=='W'){flg=1;break;}
+			if(tnk[i][0]=='W'||tnk[i][m-1]=='W'){flg=1;break;}
 		}
+		/*for(int i=0;i<n;i++){
+			bool isBrick=0;
+			for(int j=0;j<n;j++){
+				if(tnk[i][j]=='B') isBrick=1;
+				if(tnk[i][j]=='W' && !isBrick){flg=1;break;}
+			}
+		}//cout<<flg<<endl;
 		for(int i=0;i<n;i++){
-
+			bool isBrick=0;
+			for(int j=m-1;j>=0;j--){
+				if(tnk[i][j]=='B') isBrick=1;
+				if(tnk[i][j]=='W' && !isBrick){flg=1;break;}
+			}
+		}*/
+		for(int i=0;i<n;i++){
+			for(int j=1;j<m-1;j++){
+				if(tnk[i][j]=='W'&&(tnk[i][j-1]=='A'||tnk[i][j+1]=='A')){flg=1;break;}
+			}
 		}
 		if(flg) cout<<"no\n";
 		else cout<<"yes\n";
