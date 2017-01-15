@@ -8,6 +8,7 @@ void getFour(int *arr,int l,int r,int p){
 	long long prod=1;
 	for(int i=l;i<=r;i++){
 		prod*=arr[i];
+		prod%=p;
 	}
 	//cout<<prod<<endl;
 	prod=prod%p;
