@@ -9,16 +9,16 @@ void getFour(int *arr,int l,int r,int p){
 	for(int i=l;i<=r;i++){
 		prod*=arr[i];
 		prod%=p;
-		cout<<i<<" "<<prod<<endl;
+		//cout<<i<<" "<<prod<<endl;
 	}
-	//cout<<prod<<endl;
-	prod=prod%p;
+//	cout<<prod<<endl;
+	prod=prod;
 	//cout<<prod<<endl;
 	for(long long i=0;i<sqrt(prod) && i<p;i++){
 		for(long long j=0;j<sqrt(prod) && j<p;j++){
 			for(long long x=0;x<sqrt(prod) && x<p;x++){
 				for(long long y=0;y<sqrt(prod) && y<p;y++){
-					if((i*i)+(j*j)+(x*x)+(y*y)==prod){cout<<i<<" "<<j<<" "<<x<<" "<<y<<"\n";return;}
+					if(((i*i)+(j*j)+(x*x)+(y*y))==prod){cout<<i<<" "<<j<<" "<<x<<" "<<y<<"\n";return;}
 				}
 			}
 		}
@@ -40,7 +40,7 @@ int main(int argc, char const *argv[]) {
 			if(a==1){arr[x]=y;}
 			else getFour(arr,x,y,p);
 		}
-		cout<<endl;
+	//	cout<<endl;
 	}
 	 return 0;
 }
