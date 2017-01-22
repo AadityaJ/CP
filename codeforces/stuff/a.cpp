@@ -1,34 +1,42 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <cassert>
+
 using namespace std;
- int mat[100+3][107];
- int lone[100+4][105+3];
-int main()
-{
-    memset(lone,0,sizeof lone);
-        int n,m;scanf("%d",&n);
-        m=n;
-    for(int i=1;i<=n;++i){
-        for(int j=1;j<=m;++j)scanf("%d",&mat[i][j]);//cin>>mat[i][j];
-    }
-    for(int j=1;j<=m;++j){
-        int tmp=0;
-        for(int i=1;i<=n;++i){
-            lone[i][j]^=mat[i][j];
-            lone[i][j]^=lone[i-1][j];
+
+const int MAXN = 10005;
+const int MAXM = 25;
+
+int Tn, ret, a[MAXN][MAXM], f[MAXN][MAXM], n,m;
+
+int main(int argc, const char * argv[]) {
+    cin >> n >> m;
+    //assert(1 <= n && n <= 70);
+    for(int i = 1; i <= n; i++)
+        for(int j = 1; j <= m; j++) {
+            cin >> a[i][j];
+            assert(1 <= a[i][j] && a[i][j] <= 1000000000);
         }
-    }
-    int ans=0;
-    for(int a=1;a<=n;++a){
-        for(int b=a;b<=n;++b){
-            for(int c=1;c<=m;++c){
-                int tmp=0;
-                for(int d=c;d<=m;++d){
-                       tmp^=(lone[b][d]^lone[a-1][d]);
-                        ans=max(ans,tmp);
-                }
-            }
-        }
-    }
-   printf("%d\n",ans);// cout<<ans<<"\n";
+    ret = 0;
+
+    /*
+     Preprocess for calculation XOR on a submatrix fast.
+     */
+
+    for(int i = 1; i <= m; i++)
+        for(int j = 1; j <= n; j++)
+            f[i][j] = f[i - 1][j] ^ f[i][j - 1]  ^ f[i - 1][j - 1] ^ a[i][j];
+
+    /*
+     Brute-force all the possible submatrices and get the best one.
+     */
+
+    for(int x1 = 1; x1 <= n; x1++)
+        for(int y1 = 1; y1 <= n; y1++)
+            for(int x2 = x1; x2 <= m; x2++)
+                for(int y2 = y1; y2 <= m; y2++)
+                    ret = max(ret, f[x2][y2] ^ f[x1 - 1][y2] ^ f[x2][y1 - 1] ^ f[x1 - 1][y1 - 1]);
+
+    cout << ret;
     return 0;
 }
