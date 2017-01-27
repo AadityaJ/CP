@@ -1,58 +1,39 @@
-#include <iostream>
-#include <cstring>
+#include <cstdio>
 using namespace std;
-void preKMP(string pattern, int f[])
-{
-    int m = pattern.length(), k;
-    f[0] = -1;
-    for (int i = 1; i < m; i++)
-    {
-        k = f[i - 1];
-        while (k >= 0)
-        {
-            if (pattern[k] == pattern[i - 1])
-                break;
-            else
-                k = f[k];
-        }
-        f[i] = k + 1;
-    }
-}
- 
-//check whether target string contains pattern 
-bool KMP(string pattern, string target)
-{
-    int m = pattern.length();
-    int n = target.length();
-    int f[m];     
-    preKMP(pattern, f);     
-    int i = 0;
-    int k = 0;        
-    while (i < n)
-    {
-        if (k == -1)
-        {
-            i++;
-            k = 0;
-        }
-        else if (target[i] == pattern[k])
-        {
-            i++;
-            k++;
-            if (k == m)
-                return 1;
-        }
-        else
-            k = f[k];
-    }
-    return 0;
-}
-int main(int argc, char const *argv[])
-{
-    int t;
-    cin>>t;
-    while(t--){
-        
-    }
-    return 0;
+
+char *buff;
+int *over;
+
+int main() {
+	int t, x = 1, len, i, j;
+	scanf("%d", &t);
+	while(t--) {
+		scanf("%d", &len);
+		buff = new char[len+10];
+		over = new int[len+10];
+		scanf("%s", buff);
+		printf("Test case #%d\n", x++);
+		over[0] = over[1] = 0;
+		for(i=2; i<=len; i++) {
+			j = over[i-1];
+			while(true) {
+				if(buff[j]==buff[i-1]) {
+					over[i] = j + 1;
+					break;
+				}
+				else if(!j) {
+					over[i] = j;
+					break;
+				}
+				else j = over[j]; 
+			}
+			if(over[i] && i%(i-over[i])==0) {
+				printf("%d %d\n", i, i/(i-over[i]));
+			}
+		}
+		printf("\n");
+		delete[] buff;
+		delete[] over;
+	}
+	return 0;
 }
