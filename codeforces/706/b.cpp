@@ -18,7 +18,7 @@ int main(int argc, char const *argv[]) {
 		if(it==x.begin()){cout<<0<<endl;continue;}
 		it--;
 		int xc=it-x.begin();
-		xc-=95;
+		//xc-=95;
 		cout<<xc+1<<endl;
 	}
 	return 0;
