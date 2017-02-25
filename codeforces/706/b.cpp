@@ -24,6 +24,8 @@ int main(int argc, char const *argv[]) {
 	return 0;
 }
 /*
+1) Binary Search
+2) Linear Search
 
 MAJOR CODING BACKLASH
 
