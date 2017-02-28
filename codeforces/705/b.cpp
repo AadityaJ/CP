@@ -22,3 +22,12 @@ int main(int argc, char const *argv[]) {
 /*
 had to see code a little bit. More try on paper would have removed the redundancy
 */
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main(int argc, char const *argv[]) {
+
+	return 0;
+}
