@@ -19,3 +19,6 @@ int main(int argc, char const *argv[]) {
 	}
 	return 0;
 }
+/*
+had to see code a little bit. More try on paper would have removed the redundancy
+*/
