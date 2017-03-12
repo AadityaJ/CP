@@ -9,7 +9,9 @@ int main(int argc, char const *argv[]) {
 	bool isit=0;
 	for(int i=0;i<=820;i++){
 		for(int j=0;j<=8100;j++){
-			if((val-(1234567*i+123456*j))%1234==0){isit=1;break;}
+			long long int a=1234567*i;
+			long long int b=123456*j;
+			if((val-(a+b))%1234==0&&(val-(a+b)>0)){isit=1;break;}
 		}
 	}
 	/*for(int i=0;i<=val;i+=1234567){
