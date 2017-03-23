@@ -36,4 +36,3 @@ int main(int argc, char const *argv[]) {
 	cout<<"NO";
 	return 0;
 }
- 
