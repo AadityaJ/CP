@@ -35,3 +35,4 @@ int main(int argc, char const *argv[]) {
 	}
 	return 0;
 }
+// if to check whether simple graph for only one cycle , just check is n==m and if the graph is connected.
