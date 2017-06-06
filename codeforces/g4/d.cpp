@@ -32,13 +32,15 @@ int main(int argc, char const *argv[]) {
 		}
 		while(!q1.empty()){
 			int x=q1.front();
+			degree[x]--;
 			q1.pop();
 			for(int i=0;i<G[x].size();i++){
+				//cout<<x<<" "<<G[x][i]<<endl;
 				degree[G[x][i]]--;
-				if(degree[G[x][i]]==1){
-					q.push(G[x][i]);
-				}
 			}
+		}
+		for(int i=1;i<=n;i++){
+			if(degree[i]==1)q.push(i);
 		}
 		ans++;
 	}
