@@ -2,21 +2,29 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#define MX 200
 using namespace std;
 int main(int argc, char const *argv[]) {
-	int n,m;
-	cin>>n>>m;
-	int arr[n];
-	for(int i=0;i<n;i++) cin>>arr[i];
-	int pv=-1,hi=n-1,lo=0;
-	while(hi>lo){
-		int mid=(hi+lo)/2;
-		if(arr[mid]>arr[mid+1]){pv=mid;break;}
-		else if(arr[mid-1]>arr[mid]){pv=mid-1;break;}
-		else if(arr[mid]>arr[lo]){lo=mid+1;}
-		else {hi=mid-1;}
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		int arr[n];
+		int mp[MX]={};
+		for(int i=0;i<n;i++){
+			cin>>arr[i];
+			mp[arr[i]]++;
+		}
+		for(int i=200;i>0;i--){
+			for(int j=0;j<MX;j++){
+				if(mp[j]==i){
+					for(int x=0;x<i;x++) cout<<j<<" ";
+				}
+			}
+		}
+		cout<<endl;
 	}
-	//cout<<pv<<endl;
-	
+
 	return 0;
 }
