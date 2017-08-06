@@ -29,13 +29,16 @@ int main(int argc, char const *argv[]) {
 		for(int i=0;i<n-d;i++){
 			if(val[i]!=0){
 				val[i+d]+=val[i];
+		//		if(val[i+d]+sx<0){is=0;break;}
 				res+=abs(val[i]);
 				val[i]=0;
 			}
 		}
-		for(int i=0;i<n;i++){
-			if(val[i]){is=0;break;}
+		if(is){
+			for(int i=0;i<n;i++){
+				if(val[i]){is=0;break;}
 			//cout<<val[i]<<" ";
+			}
 		}
 		if(is==0){cout<<"-1\n";}
 		else{
