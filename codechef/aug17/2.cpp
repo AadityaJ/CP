@@ -4,6 +4,19 @@
 #include <algorithm>
 #include <cmath>
 using namespace std;
+bool checkAllZ(int *v,int n){
+	for(int i=0;i<n;i++){
+		if(v[i]!=0) return 1;
+	}
+	return 0;
+}
+int sumC(int *v,int n){
+	int sm=0;
+	for(int i=0;i<n;i++){
+		sm+=v[i];
+	}
+	return sm;
+}
 int main(int argc, char const *argv[]) {
 	int t;
 	cin>>t;
@@ -24,26 +37,18 @@ int main(int argc, char const *argv[]) {
 		for(int i=0;i<n;i++){
 			val[i]=(arr[i]-sx);
 		}
-		int res=0;
-		bool is=1;
-		for(int i=0;i<n-d;i++){
-			if(val[i]!=0){
-				val[i+d]+=val[i];
-		//		if(val[i+d]+sx<0){is=0;break;}
-				res+=abs(val[i]);
-				val[i]=0;
-			}
+		int v[d];
+		int posS[d];
+		for(int i=0;i<d;i++){
+			v[i]=0;
+			posS[i]=0;
 		}
-		if(is){
-			for(int i=0;i<n;i++){
-				if(val[i]){is=0;break;}
-			//cout<<val[i]<<" ";
-			}
+		for(int i=0;i<n;i++){
+			v[i%d]+=val[i];
+			if(val[i]>0) posS[i%d]+=val[i];
 		}
-		if(is==0){cout<<"-1\n";}
-		else{
-			cout<<res<<endl;
-		}
+		if(checkAllZ(v,d)) cout<<"-1\n";
+		else cout<<sumC(posS,d)<<endl;
 	}
 	 return 0;
 }
