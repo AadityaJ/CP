@@ -48,11 +48,11 @@ int main(int argc, char const *argv[]) {
 			v[i%d]+=val[i];
 			levl[i%d].push_back(val[i]);
 		}
-		for(int i=0;i<d;i++){
+		/*for(int i=0;i<d;i++){
 			cout<<i<<":: ";
 			for(int j=0;j<levl[i].size();j++) cout<<levl[i][j]<<" ";
 			cout<<endl;
-		}
+		}*/
 		if(checkAllZ(v,d)) cout<<"-1\n";
 		else{
 			long long int res=0;
