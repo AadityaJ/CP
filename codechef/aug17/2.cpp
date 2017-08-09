@@ -10,7 +10,7 @@ bool checkAllZ(long long int *v,int n){
 	}
 	return 0;
 }
-int f(std::vector<int> &v){
+long long int f(std::vector<long long int> &v){
 	long long int x=0;
 	for(int i=0;i<v.size()-1;i++){
 		v[i+1]+=v[i];
@@ -25,7 +25,7 @@ int main(int argc, char const *argv[]) {
 	while(t--){
 		int n,d;
 		cin>>n>>d;
-		int arr[n];
+		long long int arr[n];
 		long long int sx=0;
 		for(int i=0;i<n;i++) {cin>>arr[i];sx+=arr[i];}
 		if(sx%n){
@@ -34,13 +34,13 @@ int main(int argc, char const *argv[]) {
 		}
 		sx/=n;
 		//cout<<sx<<endl;
-		int val[n];
+		long long int val[n];
 		for(int i=0;i<n;i++) val[i]=0;
 		for(int i=0;i<n;i++){
 			val[i]=(arr[i]-sx);
 		}
 		long long int v[d];
-		vector<int> levl[d];
+		vector<long long int> levl[d];
 		for(int i=0;i<d;i++){
 			v[i]=0;
 		}
