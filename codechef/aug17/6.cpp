@@ -3,6 +3,11 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
+void printArr(vector<string> &v){
+    for(int i=0;i<v.size();i++){
+        cout<<v[i]<<endl;
+    }
+}
 long long int f(vector<string> &v,string str){
     for(int i=0;i<str.length();i++){
         bool is=0;
@@ -16,22 +21,18 @@ long long int f(vector<string> &v,string str){
 }
 string con2bits(int c,int n){
     string str="";
-    while(c){
-        str+=(c%2)+'0';
-        c/=2;
-    }
-    while(str.length()!=n){
-        str+='0';
-    }
-    reverse(str.begin(),str.end());
+    for(int i=0;i<(n-c-1);i++) str.push_back('0');
+    str.push_back('1');
+    for(int i=0;i<c;i++) str.push_back('0');
+
     return str;
 }
 string add(string a,string b){
     int ca=0;
     string c="";
-    for(int i=0;i<a.length();i++){
-        int ax=a[i];
-        int bx=b[i];
+    for(int i=a.length()-1;i>=0;i--){
+        int ax=a[i]-'0';
+        int bx=b[i]-'0';
         int cx=(ax+bx+ca)%2;
         ca=(ax+bx+ca)/2;
         c.push_back(cx+'0');
@@ -57,10 +58,11 @@ int main(int argc, char const *argv[]) {
                 int c;
                 cin>>c;
                 string str=con2bits(c,n);
-                //cout<<str<<endl;
                 x=add(x,str);
-                //cout<<x<<endl;
-                ans+=f(v,str);
+                ans+=f(v,x);
+                //cout<<i<<" "<<x<<endl;
+                //printArr(v);
+                //cout<<endl;
             }
         }
 	}
