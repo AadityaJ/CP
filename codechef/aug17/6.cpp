@@ -60,9 +60,9 @@ int main(int argc, char const *argv[]) {
                 string str=con2bits(c,n);
                 x=add(x,str);
                 ans+=f(v,x);
-                //cout<<i<<" "<<x<<endl;
-                //printArr(v);
-                //cout<<endl;
+                cout<<i<<" :: "<<x<<endl;
+                printArr(v);
+                cout<<endl;
             }
         }
 	}
