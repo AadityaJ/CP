@@ -1,28 +1,24 @@
 #include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
 using namespace std;
-int main(int argc, char const *argv[]) {
-	int n;
+
+int n,a[100005],b[100005],c[100005];
+long long f[100005],g[100005];
+int main(){
 	cin>>n;
-	int arr[n];
-	for(int i=0;i<n;i++) cin>>arr[i];
-	sort(arr,arr+n);
-	int pstsum[n];
-	int s=0;
-	for(int i=0;i<n;i++){
-		s+=arr[i];
-		pstsum[i]=s;
+	for(int i=1;i<=n;i++) cin>>a[i];
+	for(int i=1;i<=n;i++){
+		b[i]=max(a[i],b[i-1]+1);
+		f[i]=f[i-1]+b[i]-a[i];
 	}
-	int q;
-	cin>>q;
-	for(int i=0;i<q;i++){
-		int a;
-		cin>>a;
-		int x=(n/(a+1));
-		if(n%(a+1)) x++;
-		cout<<pstsum[x-1]<<endl;
+	for(int i=n;i;i--){
+		c[i]=max(a[i],c[i+1]+1);
+		g[i]=g[i+1]+c[i]-a[i];
 	}
+	long long ans=1ll<<50;
+	for(int i=1;i<=n;i++){
+		long long tmp=f[i-1]+g[i+1]+max(max(b[i-1],c[i+1])+1,a[i])-a[i];
+		ans=min(tmp,ans);
+	}
+	cout<<ans<<endl;
 	return 0;
 }
