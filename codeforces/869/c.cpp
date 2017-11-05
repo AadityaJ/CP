@@ -4,15 +4,14 @@
 #include <algorithm>
 using namespace std;
 int main(int argc, char const *argv[]) {
-	string str;
-	cin>>str;
-	if(str.length()<6) cout<<"no\n";
-	else{
-		int num_1=0;
-		for(int i=0;i<6;i++){
-			if(str[str.length()-1-i]=='1') num_1++;
-		}
-		
+	int n,a,b,c;
+	cin>>n>>a>>b>>c;
+	if(n==1) {cout<<"0";return 0;}
+	if(n==2) {cout<<min(a,b);return 0;}
+	if(c==min(c,min(a,b))){
+		cout<<(c*(n-2)+min(a,b));
+		return 0;
 	}
+	cout<<min(a,b)*(n-1);
 	return 0;
 }
