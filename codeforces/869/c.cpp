@@ -2,16 +2,29 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#define MX 100001
 using namespace std;
 int main(int argc, char const *argv[]) {
-	int n,a,b,c;
-	cin>>n>>a>>b>>c;
-	if(n==1) {cout<<"0";return 0;}
-	if(n==2) {cout<<min(a,b);return 0;}
-	if(c==min(c,min(a,b))){
-		cout<<(c*(n-2)+min(a,b));
-		return 0;
+	int n,k,m;
+	cin>>n>>k>>m;
+	vector<int> mp[MX];
+	//for(int i=0;i<k;i++) mp[i]=0;
+	for(int i=0;i<n;i++){
+		int x;
+		cin>>x;
+		mp[(x%m)].push_back(x);
+		//cout<<x<<"pushed to"<<(x%k)<<endl;
 	}
-	cout<<min(a,b)*(n-1);
+	bool is=0;
+	for(int i=0;i<m;i++){
+		if(mp[i].size()>=k && !is){
+			is=1;
+			cout<<"Yes\n";
+			for(int j=0;j<k;j++){
+				cout<<mp[i][j]<<' ';
+			}
+		}
+	}
+	if(!is)cout<<"No\n";
 	return 0;
 }
